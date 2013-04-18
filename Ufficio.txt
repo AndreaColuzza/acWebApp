@@ -1,0 +1,108 @@
+CREATE SCHEMA `ufficio` ;
+
+
+
+CREATE  TABLE `ufficio`.`utenti` (
+);
+
+
+
+CREATE  TABLE `ufficio`.`utenti` (
+  `username` VARCHAR(45) NOT NULL ,
+  `password` VARCHAR(45) NULL ,
+  `nome` VARCHAR(45) NULL ,
+  `cognome` VARCHAR(45) NULL ,
+  PRIMARY KEY (`username`) );
+
+
+INSERT INTO `ufficio`.`utenti` (`username`, `password`, `nome`, `cognome`) VALUES ('aaa', 'aaa', 'Mario', 'Rossi');
+INSERT INTO `ufficio`.`utenti` (`username`, `password`, `nome`, `cognome`) VALUES ('bbb', 'bbb', 'Luca', 'Verdi');
+INSERT INTO `ufficio`.`utenti` (`username`, `password`, `nome`, `cognome`) VALUES ('ccc', 'ccc', 'Francesco', 'Gialli');
+INSERT INTO `ufficio`.`utenti` (`username`, `password`, `nome`, `cognome`) VALUES ('ddd', 'ddd', 'Carla', 'Neri');
+INSERT INTO `ufficio`.`utenti` (`username`, `password`, `nome`, `cognome`) VALUES ('eee', 'eee', 'Federica', 'Blu');
+
+
+CREATE  TABLE `ufficio`.`ruoli` (
+  `cod_ruolo` INT NOT NULL ,
+  `descrizione` VARCHAR(45) NULL ,
+  PRIMARY KEY (`cod_ruolo`) );
+
+
+
+INSERT INTO `ufficio`.`ruoli` (`cod_ruolo`, `descrizione`) VALUES ('1', 'Presidente');
+INSERT INTO `ufficio`.`ruoli` (`cod_ruolo`, `descrizione`) VALUES ('2', 'Impiegato');
+INSERT INTO `ufficio`.`ruoli` (`cod_ruolo`, `descrizione`) VALUES ('3', 'Direttore');
+INSERT INTO `ufficio`.`ruoli` (`cod_ruolo`, `descrizione`) VALUES ('4', 'Segretaria');
+INSERT INTO `ufficio`.`ruoli` (`cod_ruolo`, `descrizione`) VALUES ('5', 'Vice-Presidente');
+
+
+
+
+CREATE  TABLE `ufficio`.`dipartimenti` (
+  `numero_dipartimento` INT NOT NULL ,
+  PRIMARY KEY (`numero_dipartimento`) );
+
+
+
+ALTER TABLE `ufficio`.`utenti` ADD COLUMN `cod_ruolo` INT(11) NULL  AFTER `cognome` , 
+  ADD CONSTRAINT `fk_cod_ruolo`
+  FOREIGN KEY (`cod_ruolo` )
+  REFERENCES `ufficio`.`ruoli` (`cod_ruolo` )
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION
+, ADD INDEX `fk_cod_ruolo_idx` (`cod_ruolo` ASC) ;
+
+
+
+
+CREATE  TABLE `ufficio`.`dipendenti` (
+  `incarico` VARCHAR(45) NOT NULL ,
+  `tel_ufficio` INT NULL ,
+  `posta_elettronica` VARCHAR(45) NULL ,
+  PRIMARY KEY (`incarico`) );
+
+
+
+ALTER TABLE `ufficio`.`dipendenti` CHANGE COLUMN `incarico` `qualifica` VARCHAR(45) NOT NULL  ;
+
+
+CREATE  TABLE `ufficio`.`dipartimenti_dipendenti` (
+  `numero_dipartimento` INT NULL ,
+  `qualifica` VARCHAR(45) NULL );
+
+
+
+INSERT INTO `ufficio`.`dipartimenti` (`numero_dipartimento`) VALUES ('1');
+INSERT INTO `ufficio`.`dipartimenti` (`numero_dipartimento`) VALUES ('2');
+INSERT INTO `ufficio`.`dipartimenti` (`numero_dipartimento`) VALUES ('3');
+INSERT INTO `ufficio`.`dipartimenti` (`numero_dipartimento`) VALUES ('4');
+INSERT INTO `ufficio`.`dipartimenti` (`numero_dipartimento`) VALUES ('5');
+INSERT INTO `ufficio`.`dipartimenti` (`numero_dipartimento`) VALUES ('6');
+
+
+
+ALTER TABLE `ufficio`.`dipendenti` DROP COLUMN `posta_elettronica` ;
+
+
+
+
+UPDATE `ufficio`.`utenti` SET `cod_ruolo`='1' WHERE `username`='aaa';
+UPDATE `ufficio`.`utenti` SET `cod_ruolo`='2' WHERE `username`='bbb';
+UPDATE `ufficio`.`utenti` SET `cod_ruolo`='3' WHERE `username`='eee';
+UPDATE `ufficio`.`utenti` SET `cod_ruolo`='4' WHERE `username`='ddd';
+UPDATE `ufficio`.`utenti` SET `cod_ruolo`='5' WHERE `username`='ccc';
+
+
+ALTER TABLE `ufficio`.`dipartimenti_dipendenti` 
+  ADD CONSTRAINT `fk_qualifica`
+  FOREIGN KEY (`qualifica` )
+  REFERENCES `ufficio`.`dipendenti` (`qualifica` )
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION, 
+  ADD CONSTRAINT `fk_numero_dipartimento`
+  FOREIGN KEY (`numero_dipartimento` )
+  REFERENCES `ufficio`.`dipartimenti` (`numero_dipartimento` )
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION
+, ADD INDEX `fk_qualifica_idx` (`qualifica` ASC) 
+, ADD INDEX `fk_numero_dipartimento_idx` (`numero_dipartimento` ASC) ;
