@@ -106,3 +106,11 @@ ALTER TABLE `ufficio`.`dipartimenti_dipendenti`
   ON UPDATE NO ACTION
 , ADD INDEX `fk_qualifica_idx` (`qualifica` ASC) 
 , ADD INDEX `fk_numero_dipartimento_idx` (`numero_dipartimento` ASC) ;
+
+
+
+UPDATE `ufficio`.`ruoli` SET `descrizione`='Amni' WHERE `codruolo`='1';
+UPDATE `ufficio`.`ruoli` SET `descrizione`='Standard' WHERE `codruolo`='2';
+UPDATE `ufficio`.`ruoli` SET `descrizione`='Ospite' WHERE `codruolo`='3';
+UPDATE `ufficio`.`ruoli` SET `descrizione`='Ospite' WHERE `codruolo`='4';
+UPDATE `ufficio`.`ruoli` SET `descrizione`='Standard' WHERE `codruolo`='5';

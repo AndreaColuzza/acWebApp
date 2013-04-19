@@ -9,7 +9,7 @@ public class Ruolo {
 	public int getCodruolo() {
 		return codruolo;
 	}
-	public void setCodruolo(int codruolo) {
+	public void setCodruolo(String string) {
 		this.codruolo = codruolo;
 	}
 	public String getDescrizione() {
