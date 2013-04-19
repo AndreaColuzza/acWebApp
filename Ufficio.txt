@@ -109,7 +109,7 @@ ALTER TABLE `ufficio`.`dipartimenti_dipendenti`
 
 
 
-UPDATE `ufficio`.`ruoli` SET `descrizione`='Amni' WHERE `codruolo`='1';
+UPDATE `ufficio`.`ruoli` SET `descrizione`='Amministratore' WHERE `codruolo`='1';
 UPDATE `ufficio`.`ruoli` SET `descrizione`='Standard' WHERE `codruolo`='2';
 UPDATE `ufficio`.`ruoli` SET `descrizione`='Ospite' WHERE `codruolo`='3';
 UPDATE `ufficio`.`ruoli` SET `descrizione`='Ospite' WHERE `codruolo`='4';
