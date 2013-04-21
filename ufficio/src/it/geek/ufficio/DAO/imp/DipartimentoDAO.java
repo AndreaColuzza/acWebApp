@@ -1,11 +1,9 @@
 package it.geek.ufficio.DAO.imp;
 
-
 import java.sql.DriverManager;
 
 import it.geek.ufficio.DAO.IDAO;
-import it.geek.ufficio.model.Ruolo;
-import it.geek.ufficio.model.Utente;
+import it.geek.ufficio.model.Dipartimento;
 import java.sql.*;
 import java.util.List;
 
@@ -13,12 +11,12 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-	public class RuoloDAO implements IDAO<Ruolo, String>{
+	public class DipartimentoDAO implements IDAO<Dipartimento, String>{
 		@Override
-		public Ruolo findById(String id){
+		public Dipartimento findById(String id){
 			
 			Connection c = null;
-			Ruolo ret = null;
+			Dipartimento ret = null;
 			
 			try{
 				InitialContext cxt = new InitialContext();
@@ -43,16 +41,14 @@ import javax.sql.DataSource;
 			PreparedStatement ps = null;
 			ResultSet rs = null;
 			
-			String sql="SELECT codruolo, descrizione FROM ruoli WHERE codruolo=?";
-			
+			String sql="SELECT numerodipartimento FROM dipartimenti";
 			try{
 				ps = c.prepareStatement(sql);
 				ps.setString(1, id);
 				rs = ps.executeQuery();
 				if(rs.next()){
-					ret = new Ruolo();
-					ret.setCodruolo(rs.getString("codruolo"));
-					ret.setDescrizione(rs.getString("descrizione"));
+					ret = new Dipartimento();
+					ret.setNumerodipartimento(rs.getInt("numerodipartimento"));
 				}
 			}catch(Exception e){
 				System.out.print("errore! "+e);
@@ -83,14 +79,13 @@ import javax.sql.DataSource;
 			return ret;
 		}
 		@Override
-		public List<Ruolo> findAll(){
-			System.out.println("RuoloDAO.findAll()::FUNZIONE NON IMPLEMENTATA");
+		public List<Dipartimento> findAll(){
+			System.out.println("DipartimentoDAO.findAll()::FUNZIONE NON IMPLEMENTATA");
 			return null;
 		}
 		@Override
-		public List<Ruolo> findByExample(Ruolo r) {
+		public List<Dipartimento> findByExample(Dipartimento di) {
 			
 			return null;
 		}
-
 }

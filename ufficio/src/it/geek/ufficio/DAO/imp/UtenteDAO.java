@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 			
 			try{
 				InitialContext cxt = new InitialContext();
-				DataSource ds = (DataSource) cxt.lookup("java:/comp/env/jdbc/MusicDB" );
+				DataSource ds = (DataSource) cxt.lookup("java:/comp/env/jdbc/ufficioDB" );
 				c = ds.getConnection();
 				}
 				/*Class.forName("com.mysql.jdbc.Driver");

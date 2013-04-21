@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <javaee:resource-ref>
-    <javaee:description>Music DB Connection</javaee:description>
-    <javaee:res-ref-name>jdbc/MusicDB</javaee:res-ref-name>
+    <javaee:description>Ufficio DB Connection</javaee:description>
+    <javaee:res-ref-name>jdbc/UfficioDB</javaee:res-ref-name>
     <javaee:res-type>javax.sql.DataSource</javaee:res-type>
     <javaee:res-auth>Container</javaee:res-auth>
   </javaee:resource-ref>
@@ -11,10 +11,10 @@
   </welcome-file-list>
   <servlet>
     <servlet-name>Login</servlet-name>
-    <servlet-class>it.geek.musica.controller.LoginServlet</servlet-class>
+    <servlet-class>it.geek.ufficio.controller.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
     <url-pattern>/home</url-pattern>
   </servlet-mapping>
-  <servlet>
+</web-app>

@@ -1,8 +1,8 @@
-package it.geek.ufficio.controller;
+package it.geek.pizzeria.controller;
 
-import it.geek.ufficio.DAO.IDAO;
-import it.geek.ufficio.DAO.imp.UtenteDAO;
-import it.geek.ufficio.model.Utente;
+import it.geek.pizzeria.dao.IDAO;
+import it.geek.pizzeria.dao.UtenteDAO;
+import it.geek.pizzeria.model.Utente;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
