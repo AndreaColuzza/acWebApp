@@ -13,8 +13,26 @@
     <servlet-name>Login</servlet-name>
     <servlet-class>it.geek.ufficio.controller.LoginServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Logout</servlet-name>
+  	<servlet-class>it.geek.ufficio.controller.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ListaUtenti</servlet-name>
+  	<servlet-class>it.geek.ufficio.controller.GestioneUtentiServlet</servlet-class>
+  </servlet>
+  
+  
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
     <url-pattern>/home</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Logout</servlet-name>
+  	<url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ListaUtenti</servlet-name>
+  	<url-pattern>/listaUtenti</url-pattern>
   </servlet-mapping>
 </web-app>

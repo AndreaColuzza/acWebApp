@@ -14,7 +14,7 @@ public class MyJNDIConnection {
 		
 		try{
 			InitialContext cxt = new InitialContext();
-			DataSource ds = (DataSource)cxt.lookup("java:/comp/env/jdbc/ufficioDB");
+			DataSource ds = (DataSource)cxt.lookup("java:/comp/env/jdbc/UfficioDB");
 			c = ds.getConnection();
 		}catch(NamingException e){
 			System.out.println("Impossibile trovare la risorsa");

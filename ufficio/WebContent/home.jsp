@@ -10,10 +10,13 @@
 </head>
 <body>
 	Home&nbsp;-&nbsp;Benvenuto&nbsp;<%=ut.getNome()%>&nbsp;<%=ut.getCognome()%>
-	
+	<%if(ut.isAmministratore()){ %>
 		<form method="GET" name="homeForm" action="listaUtenti">
-		
 		Lista Utenti<input type="submit" name="bottone" value="vai alla lista"/>
+		</form>
+	<%} %>
+		<form method="GET" name="logoutForm" action="logout">
+		Esci <input type="submit" name="bottone" value="logout"/>
 		</form>
 		
 </body>

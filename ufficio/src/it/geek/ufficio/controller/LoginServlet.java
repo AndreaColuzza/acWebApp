@@ -44,8 +44,8 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("utente", u);
 
-			RequestDispatcher rd = request.getRequestDispatcher("/home.jsp"); //eseguito il login mi da un errore:
-			rd.forward(request, response);								      //NullPointerException alla riga 48
+			RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
+			rd.forward(request, response);								      
 			
 		}		
 

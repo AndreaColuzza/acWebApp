@@ -1,42 +1,23 @@
 package it.geek.ufficio.DAO.imp;
 
-import java.sql.DriverManager;
+
 
 import it.geek.ufficio.DAO.IDAO;
 import it.geek.ufficio.model.Dipartimento;
+import it.geek.ufficio.util.MyJNDIConnection;
+
 import java.sql.*;
 import java.util.List;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 
 	public class DipartimentoDAO implements IDAO<Dipartimento, String>{
 		@Override
 		public Dipartimento findById(String id){
 			
-			Connection c = null;
+			
 			Dipartimento ret = null;
 			
-			try{
-				InitialContext cxt = new InitialContext();
-				DataSource ds = (DataSource) cxt.lookup("java:/comp/env/jdbc/ufficioDB" );
-				c = ds.getConnection();
-				}
-				/*Class.forName("com.mysql.jdbc.Driver");
-				c = DriverManager.getConnection("jdbc:mysql://localhost/musica?user=root&password=root");*/
-			catch(NamingException e){
-					System.out.println("non ho la risorsa");
-					e.printStackTrace();
-				}
-			/*catch(ClassNotFoundException e){
-				System.out.println("non ho trovato il driver");
-				e.printStackTrace();
-				*/
-			catch(SQLException e){
-				System.out.println("non ho la connessione");
-				e.printStackTrace();
-			}
+			Connection c = MyJNDIConnection.getConnection();
 			
 			PreparedStatement ps = null;
 			ResultSet rs = null;

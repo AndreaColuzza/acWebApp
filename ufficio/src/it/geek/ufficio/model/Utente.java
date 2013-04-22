@@ -5,7 +5,7 @@ public class Utente {
 	private String password;
 	private String nome;
 	private String cognome;
-	private String codruolo;
+	private int codruolo;
 	
 	
 	public String getUsername() {
@@ -32,10 +32,13 @@ public class Utente {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-	public String getCodruolo() {
+	public int getCodruolo() {
 		return codruolo;
 	}
-	public void setCodruolo(String codruolo) {
+	public void setCodruolo(int codruolo) {
 		this.codruolo = codruolo;
+	}
+	public boolean isAmministratore(){
+		return this.codruolo == 1;
 	}
 }

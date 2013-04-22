@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>error</title>
+<title>Saluti</title>
 </head>
 <body>
-error&nbsp;-&nbsp;<%=request.getAttribute("messaggio") %>
+Arrivederci!!
 </body>
 </html>
