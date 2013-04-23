@@ -4,6 +4,7 @@ package it.geek.ufficio.DAO.imp;
 
 import it.geek.ufficio.DAO.IDAO;
 import it.geek.ufficio.model.Dipartimento;
+import it.geek.ufficio.model.Utente;
 import it.geek.ufficio.util.MyJNDIConnection;
 
 import java.sql.*;
@@ -68,5 +69,15 @@ import java.util.List;
 		public List<Dipartimento> findByExample(Dipartimento di) {
 			
 			return null;
+		}
+		@Override
+		public boolean insert(Utente u) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+		@Override
+		public boolean update(Utente u) {
+			// TODO Auto-generated method stub
+			return false;
 		}
 }

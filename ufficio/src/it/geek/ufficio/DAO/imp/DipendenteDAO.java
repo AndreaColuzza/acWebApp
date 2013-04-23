@@ -76,4 +76,14 @@ import javax.sql.DataSource;
 			
 			return null;
 		}
+		@Override
+		public boolean insert(Utente u) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+		@Override
+		public boolean update(Utente u) {
+			// TODO Auto-generated method stub
+			return false;
+		}
 }

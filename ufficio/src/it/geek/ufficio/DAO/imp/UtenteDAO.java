@@ -116,6 +116,96 @@ public class UtenteDAO implements IDAO<Utente, String>{
 		}
 		return lista;
 }
+	public boolean insert(Utente u){
+		
+		
+		Connection conn = MyJNDIConnection.getConnection();
+		boolean ret = false;
+		
+		String sql = "INSERT INTO utenti (nome,cognome,codruolo) values(?,?,?)";
+		
+		conn = MyJNDIConnection.getConnection();
+		PreparedStatement ps = null;
+		Utente utente = null;
+		
+		try{
+		
+			ps = conn.prepareStatement(sql);
+			
+			ps.setString(1,utente.getNome());
+			ps.setString(2,utente.getCognome());
+			ps.setInt(3,utente.getCodruolo());
+    
+            int ritorno = ps.executeUpdate();	
+			
+			if(ritorno>0){
+				ret=true;
+			}
+			
+			
+			
+			}catch(Exception e){
+				e.printStackTrace();
+			}	
+		finally {
+			try{
+				ps.close();
+			}
+			catch(Exception e){
+				System.out.println("Impossibile chiudere il PreparedStatement .... "+e);
+				e.printStackTrace();
+			}
+			try{
+				ps.close();
+			}
+			catch(Exception e){
+				System.out.println("Impossibile chiudere la Connection .... "+e);
+				e.printStackTrace();
+			}
+		}
+	    return ret;
+	}
+	public boolean update(Utente u){
+
+		
+		Connection conn = MyJNDIConnection.getConnection();
+		conn = MyJNDIConnection.getConnection();
+		PreparedStatement ps = null;
+		Utente utente = null;
+		String sql = "UPDATE utenti SET nome = ?, cognome = ? WHERE codruolo = ?";
+		
+		try{
+			ps = conn.prepareStatement(sql);
+			ps.setString(1,utente.getNome());
+			ps.setString(2,utente.getCognome());	
+			ps.setInt(3,utente.getCodruolo());
+		
+			int ritorno = ps.executeUpdate();
+			return ritorno>0;
+		
+		}
+
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	finally {
+		try{
+			ps.close();
+		}
+		catch(Exception e){
+			System.out.println("Impossibile chiudere il PreparedStatement");
+		}
+		try{
+			conn.close();
+		}
+		catch(Exception e){
+			System.out.println("Impossibile chiudere la Connection");
+		}
+	}
+	return false;
+
+}
+	
 @Override
 public List<Utente> findByExample(Utente a) {
 

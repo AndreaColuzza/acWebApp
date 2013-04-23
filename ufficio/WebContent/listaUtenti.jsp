@@ -12,28 +12,18 @@
 <title>Lista Utenti</title>
 </head>
 <body>
-
+Aggiungere un Utente??
+<form name="InserisciForm" method="GET" action="insertUtente">
+		<input type="submit" name="Clicca qui" value="Clicca qui"/>	
 	<table border=6 table align=center>
-	<tr>
 		<tr>
-			<b>Nome</b>
-		</tr>
-		<tr>
-			<b>Cognome</b>
-		</tr>
-		<tr>
-			<b>Codice Ruolo</b>
-		</tr>
-		<tr>
-			<b>Opzione 1</b>
-		</tr>
-		<tr>
-			<b>Opzione 2</b>
-		</tr>
-		<tr>
-			<b>Opzione 3</b>
-		</tr>
-	</tr>
+			<td>Nome</td>
+			<td>Cognome</td>
+			<td>Codice Ruolo</td>
+			<td>Opzione 1</td>
+			<td>Opzione 2</td>
+			<td>Opzione 3</td>
+		</tr>	
 
 		<%if (lista != null) {
 			for (int i = 0; i < lista.size(); i++) {
