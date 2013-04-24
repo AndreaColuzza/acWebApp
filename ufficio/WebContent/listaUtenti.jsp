@@ -15,6 +15,7 @@
 Aggiungere un Utente??
 <form name="InserisciForm" method="GET" action="insertUtente">
 		<input type="submit" name="Clicca qui" value="Clicca qui"/>	
+</form>		
 	<table border=6 table align=center>
 		<tr>
 			<td>Nome</td>

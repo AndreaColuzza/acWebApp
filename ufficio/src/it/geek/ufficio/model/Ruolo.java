@@ -5,7 +5,6 @@ public class Ruolo {
 	private String descrizione;
 	
 	
-	
 	public int getCodruolo() {
 		return codruolo;
 	}
@@ -18,4 +17,8 @@ public class Ruolo {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
+	
+	 
+	
+	
 }

@@ -17,7 +17,6 @@
     <servlet-name>Logout</servlet-name>
     <servlet-class>it.geek.ufficio.controller.LogoutServlet</servlet-class>
   </servlet>
-
   <servlet>
     <servlet-name>ListaUtenti</servlet-name>
     <servlet-class>it.geek.ufficio.controller.GestioneUtentiServlet</servlet-class>
@@ -26,6 +25,12 @@
     <servlet-name>InsertUtenteServlet</servlet-name>
     <servlet-class>it.geek.ufficio.controller.InsertUtenteServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>VisualizzaInsertServlet</servlet-name>
+    <servlet-class>it.geek.ufficio.controller.EseguiInsertServlet</servlet-class>
+  </servlet>
+  
+  
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
     <url-pattern>/home</url-pattern>
@@ -41,5 +46,9 @@
   <servlet-mapping>
     <servlet-name>InsertUtenteServlet</servlet-name>
     <url-pattern>/insertUtente</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>VisualizzaInsertServlet</servlet-name>
+    <url-pattern>/visualizza</url-pattern>
   </servlet-mapping>
 </web-app>

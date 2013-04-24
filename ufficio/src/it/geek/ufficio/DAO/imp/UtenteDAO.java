@@ -36,9 +36,10 @@ public class UtenteDAO implements IDAO<Utente, String>{
 				ret = new Utente();
 				ret.setUsername(rs.getString("username"));
 				ret.setPassword(rs.getString("password"));
+				ret.setNome(rs.getString("nome"));
 				ret.setCognome(rs.getString("cognome"));
 				ret.setCodruolo(rs.getInt("codruolo"));
-				ret.setNome(rs.getString("nome"));
+				
 			}
 		}catch(Exception e){
 			System.out.print("errore! "+e);
@@ -122,28 +123,25 @@ public class UtenteDAO implements IDAO<Utente, String>{
 		Connection conn = MyJNDIConnection.getConnection();
 		boolean ret = false;
 		
-		String sql = "INSERT INTO utenti (nome,cognome,codruolo) values(?,?,?)";
+		String sql = "INSERT INTO utenti (username,password,nome,cognome,codruolo) values(?,?,?,?,?)";
 		
-		conn = MyJNDIConnection.getConnection();
 		PreparedStatement ps = null;
-		Utente utente = null;
 		
 		try{
 		
 			ps = conn.prepareStatement(sql);
 			
-			ps.setString(1,utente.getNome());
-			ps.setString(2,utente.getCognome());
-			ps.setInt(3,utente.getCodruolo());
+			ps.setString(1,u.getUsername());
+			ps.setString(2,u.getUsername());
+			ps.setString(3,u.getNome());
+			ps.setString(4,u.getCognome());
+			ps.setInt(5,u.getCodruolo());
     
             int ritorno = ps.executeUpdate();	
 			
 			if(ritorno>0){
 				ret=true;
 			}
-			
-			
-			
 			}catch(Exception e){
 				e.printStackTrace();
 			}	
@@ -165,20 +163,21 @@ public class UtenteDAO implements IDAO<Utente, String>{
 		}
 	    return ret;
 	}
-	public boolean update(Utente u){
+	public boolean update(Utente u, Connection c){
 
 		
 		Connection conn = MyJNDIConnection.getConnection();
 		conn = MyJNDIConnection.getConnection();
 		PreparedStatement ps = null;
-		Utente utente = null;
-		String sql = "UPDATE utenti SET nome = ?, cognome = ? WHERE codruolo = ?";
+		String sql = "UPDATE utenti SET nome = ?, cognome = ? codruolo = ?, password = ? WHERE username = ?";
 		
 		try{
 			ps = conn.prepareStatement(sql);
-			ps.setString(1,utente.getNome());
-			ps.setString(2,utente.getCognome());	
-			ps.setInt(3,utente.getCodruolo());
+			ps.setString(1,u.getUsername());
+			ps.setString(2,u.getPassword());
+			ps.setString(3,u.getNome());
+			ps.setString(4,u.getCognome());	
+			ps.setInt(5,u.getCodruolo());
 		
 			int ritorno = ps.executeUpdate();
 			return ritorno>0;
@@ -210,5 +209,10 @@ public class UtenteDAO implements IDAO<Utente, String>{
 public List<Utente> findByExample(Utente a) {
 
 	return null;
+}
+@Override
+public boolean update(Utente u) {
+	// TODO Auto-generated method stub
+	return false;
 }
 }
