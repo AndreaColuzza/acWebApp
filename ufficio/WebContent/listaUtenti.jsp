@@ -34,7 +34,7 @@ Aggiungere un Utente??
 			<td><%=lista.get(i).getCognome()%></td>
 			<td><%=lista.get(i).getCodruolo()%></td>
 			<td><a href="gestioneUtenti?view&id=aaa<%=lista.get(i).getUsername()%>">Visualizza</a></td>
-			<td><a href="gestioneUtenti?setid=bbb<%=lista.get(i).getUsername()%>">Modifica</a></td>
+			<td><a href="gestioneUtenti?set&id=bbb<%=lista.get(i).getUsername()%>">Modifica</a></td>
 			<td><a href="gestioneUtenti?delete&id=ccc<%=lista.get(i).getUsername()%>">Elimina</a></td>
 		</tr>
 			<%}%>

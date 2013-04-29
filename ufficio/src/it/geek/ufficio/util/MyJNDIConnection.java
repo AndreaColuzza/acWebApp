@@ -1,4 +1,5 @@
 package it.geek.ufficio.util;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 

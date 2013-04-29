@@ -11,5 +11,6 @@ import java.util.List;
 		public List<E> findByExample(E e);
 		public boolean insert(Utente u);
 		public boolean update(Utente u);
+		public boolean delete(Utente u);
 		
 	}

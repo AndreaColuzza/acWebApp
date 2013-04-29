@@ -86,4 +86,9 @@ import javax.sql.DataSource;
 			// TODO Auto-generated method stub
 			return false;
 		}
+		@Override
+		public boolean delete(Utente u) {
+			// TODO Auto-generated method stub
+			return false;
+		}
 }

@@ -132,7 +132,7 @@ public class UtenteDAO implements IDAO<Utente, String>{
 			ps = conn.prepareStatement(sql);
 			
 			ps.setString(1,u.getUsername());
-			ps.setString(2,u.getUsername());
+			ps.setString(2,u.getPassword());
 			ps.setString(3,u.getNome());
 			ps.setString(4,u.getCognome());
 			ps.setInt(5,u.getCodruolo());
@@ -154,7 +154,7 @@ public class UtenteDAO implements IDAO<Utente, String>{
 				e.printStackTrace();
 			}
 			try{
-				ps.close();
+				conn .close();
 			}
 			catch(Exception e){
 				System.out.println("Impossibile chiudere la Connection .... "+e);
@@ -169,7 +169,7 @@ public class UtenteDAO implements IDAO<Utente, String>{
 		Connection conn = MyJNDIConnection.getConnection();
 		conn = MyJNDIConnection.getConnection();
 		PreparedStatement ps = null;
-		String sql = "UPDATE utenti SET nome = ?, cognome = ? codruolo = ?, password = ? WHERE username = ?";
+		String sql = "UPDATE utenti SET nome = ?, cognome = ?, codruolo = ?, password = ? WHERE username = ?";
 		
 		try{
 			ps = conn.prepareStatement(sql);
@@ -187,7 +187,7 @@ public class UtenteDAO implements IDAO<Utente, String>{
 		catch(Exception e){
 			e.printStackTrace();
 		}
-	finally {
+	  finally {
 		try{
 			ps.close();
 		}
@@ -212,6 +212,11 @@ public List<Utente> findByExample(Utente a) {
 }
 @Override
 public boolean update(Utente u) {
+	// TODO Auto-generated method stub
+	return false;
+}
+@Override
+public boolean delete(Utente u) {
 	// TODO Auto-generated method stub
 	return false;
 }

@@ -80,4 +80,9 @@ import java.util.List;
 			// TODO Auto-generated method stub
 			return false;
 		}
+		@Override
+		public boolean delete(Utente u) {
+			// TODO Auto-generated method stub
+			return false;
+		}
 }

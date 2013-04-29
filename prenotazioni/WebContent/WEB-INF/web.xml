@@ -13,8 +13,42 @@
     <servlet-name>Riconoscimento</servlet-name>
     <servlet-class>it.geek.prenotazioni.controller.RiconoscimentoServlet</servlet-class>
   </servlet>
+  <servlet>
+  <servlet-name>Logout</servlet-name>
+    <servlet-class>it.geek.ufficio.controller.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ListaCorsi</servlet-name>
+    <servlet-class>it.geek.prenotazioni.controller.ListaCorsiServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>InsertServlet</servlet-name>
+    <servlet-class>it.geek.prenotazioni.controller.InsertServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>VisualizzaInsertServlet</servlet-name>
+    <servlet-class>it.geek.prenotazioni.controller.EseguiInsertServlet</servlet-class>
+  </servlet>
+  
+  
   <servlet-mapping>
     <servlet-name>Riconoscimento</servlet-name>
-    <url-pattern>/home</url-pattern>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Logout</servlet-name>
+  <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ListaCorsi</servlet-name>
+    <url-pattern>/listaCorsi</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InsertServlet</servlet-name>
+    <url-pattern>/insertCorsi</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VisualizzaInsertServlet</servlet-name>
+    <url-pattern>/visualizza</url-pattern>
   </servlet-mapping>
 </web-app>

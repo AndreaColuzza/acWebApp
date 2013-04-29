@@ -1,6 +1,5 @@
 package it.geek.prenotazioni.util;
 
-
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -8,34 +7,25 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import org.apache.log4j.Logger;
-
 public class MyJNDIConnection {
-	
-	private static Logger log = Logger.getLogger(MyJNDIConnection.class);
-	private static String resource_str = "java:/comp/env/jdbc/PrenotazioniDB";
-	
+
 	public static Connection getConnection(){
 		
-			Connection connection = null;
+		Connection c = null;
+		
+		try{
+			InitialContext cxt = new InitialContext();
+			DataSource ds = (DataSource)cxt.lookup("java:/comp/env/jdbc/PrenotazioniDB");
+			c = ds.getConnection();
+		}catch(NamingException e){
+			System.out.println("Impossibile trovare la risorsa");
+			e.printStackTrace();
 			
-			try {
-				
-				InitialContext cxt = new InitialContext();
-				DataSource ds = (DataSource) cxt.lookup( resource_str );
-				connection = ds.getConnection();
+		}catch(SQLException e){
 
-				
-			} catch (NamingException e) {
-				log.error("non ho trovato la risorsa! "+e);
-				e.printStackTrace();
-			} catch (SQLException e) {
-				log.error("non ho la connessione!" +e);
-				e.printStackTrace();
-			}	
-			
-			return connection;
-	} 
-	
-	
+			System.out.println("Impossibile ottenere la connessione");
+			e.printStackTrace();
+		}
+		return c;
+	}
 }
